@@ -1,26 +1,58 @@
-// alert("heelo how you doing welcome to Coffe shop");
-let navbar = document.querySelector('.navbar');
-document.querySelector('#menu-btn').onclick = () =>{
-    navbar.classList.toggle('active');
-    searchForm.classList.remove('active');
-    cartItem.classList.remove('active');
-}
+// ====================== MUSIC TOGGLE =======================
+const music = document.getElementById("bg-music");
+const musicBtn = document.getElementById("music-btn");
+const iconOn = document.getElementById("icon-on");
+const iconOff = document.getElementById("icon-off");
 
-let searchForm = document.querySelector('.search-form');
-document.querySelector('#search-btn').onclick = () =>{
-    searchForm.classList.toggle('active');
-    navbar.classList.remove('active');
-    cartItem.classList.remove('active');
-}
+// Autoplay setelah user pertama kali klik layar
+document.addEventListener("click", function () {
+    music.play().catch(() => {});
+    musicBtn.classList.add("playing");
+    iconOn.classList.add("rotate");  // <-- ROTATE SAAT START
+}, { once: true });
 
-let cartItem = document.querySelector('.cart-items-container');
-document.querySelector('#cart-btn').onclick = () =>{
-    cartItem.classList.toggle('active');
-    navbar.classList.remove('active');
-    searchForm.classList.remove('active');
-}
-window.onscroll=()=>{
-    navbar.classList.remove('active');
-    searchForm.classList.remove('active');
-    cartItem.classList.remove('active');
-}
+// Klik tombol musik untuk ON/OFF
+musicBtn.addEventListener("click", function () {
+    if (music.paused) {
+        music.play();
+        iconOn.style.display = "block";
+        iconOff.style.display = "none";
+        musicBtn.classList.add("playing");
+        iconOn.classList.add("rotate");  // <-- PUTAR
+        iconOff.classList.remove("rotate");
+    } else {
+        music.pause();
+        iconOn.style.display = "none";
+        iconOff.style.display = "block";
+        musicBtn.classList.remove("playing");
+        iconOn.classList.remove("rotate"); // <-- STOP PUTAR
+        iconOff.classList.remove("rotate");
+    }
+});
+
+// 6 Desember 2025 jam 19:00 WITA
+// WITA = UTC+8 → 19:00 WITA = 11:00 UTC
+
+let eventDate = new Date(Date.UTC(2025, 11, 6, 11, 0, 0));
+// bulan 11 = Desember (index 0)
+
+// Countdown
+let timer = setInterval(function () {
+    let now = new Date();
+    let diff = eventDate - now;
+
+    if (diff <= 0) {
+        document.getElementById("timer").innerHTML = "Acara Sedang Berlangsung!";
+        clearInterval(timer);
+        return;
+    }
+
+    let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById("timer").innerHTML =
+        `${days} Hari ${hours} Jam ${minutes} Menit ${seconds} Detik`;
+}, 1000);
+
