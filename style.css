@@ -288,16 +288,15 @@
     font-weight: 600;
 }
 
-/* ===== CONTAINER KOTAK ACARA ===== */
 .event-box {
-  display: inline-block;
-  background: linear-gradient(135deg, #330000, #660000); /* gradien gelap ke merah */
-  padding: 20px 30px;
-  border-radius: 20px; /* sudut melengkung */
-  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6), 0 0 40px rgba(255, 80, 0, 0.4); /* shadow sangar */
-  color: #ffecec;
-  text-align: center;
-  margin: 15px auto;
+    display: inline-block;
+    background: linear-gradient(135deg, #330000, #660000); /* gradien gelap ke merah */
+    padding: 20px 30px;
+    border-radius: 20px; /* sudut melengkung */
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6), 0 0 40px rgba(255, 80, 0, 0.4); /* shadow sangar */
+    color: #ffecec;
+    text-align: center;
+    margin: 15px auto;
 }
 
 /* ===== JAM ACARA ===== */
@@ -359,6 +358,60 @@
   position: relative;
   overflow: visible;
   padding-bottom: 160px; /* tambahkan ruang di bawah */
+  text-align: center;
+    color: #ffecec;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.5), 0 0 50px rgba(255, 80, 0, 0.3);
+}
+
+/* Teks H2 */
+#event-date h2 {
+  position: relative;
+  z-index: 2;
+  font-size: 28px;
+  font-weight: 700;
+  color: #ff5555;
+  text-shadow: 0 0 8px rgba(255, 0, 0, 0.7), 0 0 15px rgba(255, 100, 0, 0.5);
+  margin-bottom: 30px;
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Date box 3D */
+#event-date .date-box {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  background: linear-gradient(135deg, #330000, #660000);
+  padding: 20px 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5), 0 0 40px rgba(255, 80, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover efek */
+#event-date .date-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.7), 0 0 50px rgba(255, 80, 0, 0.5);
+}
+
+/* Teks tanggal, bulan, tahun */
+#event-date .date-box span {
+  display: block;
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffdddd;
+  text-shadow:
+      0 0 10px #ff6666,
+      0 0 15px #ff3333;
+}
+
+#event-date .date-box .month {
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #ffaaaa;
 }
 
 .vnom-image {
@@ -611,6 +664,66 @@
       font-size: 14px;
   }
   .community-list h3 {
+      font-size: 22px;
+  }
+}
+
+#community-photos {
+  margin: 50px auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+#community-photos h3 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 25px;
+  background: linear-gradient(90deg, #ff0000, #ff5500, #ffaaaa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 8px rgba(255, 0, 0, 0.8), 0 0 15px rgba(255, 120, 0, 0.6);
+}
+
+/* Grid foto 4 kolom */
+.photos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
+}
+
+/* Tiap foto */
+.photo-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.5), 0 0 25px rgba(255, 80, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover efek sangar */
+.photo-item img:hover {
+  transform: scale(1.05) rotate(-1deg);
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.7), 0 0 40px rgba(255, 80, 0, 0.6);
+}
+
+/* Responsif untuk HP */
+@media (max-width: 768px) {
+  .photos-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .photos-grid {
+      grid-template-columns: 1fr;
+      gap: 10px;
+  }
+
+  #community-photos h3 {
       font-size: 22px;
   }
 }
