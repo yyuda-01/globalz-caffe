@@ -288,38 +288,61 @@
     font-weight: 600;
 }
 
+/* ===== CONTAINER KOTAK ACARA ===== */
+.event-box {
+  display: inline-block;
+  background: linear-gradient(135deg, #330000, #660000); /* gradien gelap ke merah */
+  padding: 20px 30px;
+  border-radius: 20px; /* sudut melengkung */
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6), 0 0 40px rgba(255, 80, 0, 0.4); /* shadow sangar */
+  color: #ffecec;
+  text-align: center;
+  margin: 15px auto;
+}
+
 /* ===== JAM ACARA ===== */
 .event-time {
     font-size: 20px;
     margin-top: 10px;
     color: #ffdbdb;
-    font-weight: 500;
-    text-shadow: 0 0 8px rgba(255, 80, 80);
+    font-weight: 600;
+    text-shadow: 
+        0 0 5px #ff6666, 
+        0 0 10px #ff3333, 
+        0 0 15px #ff0000; /* glow merah sangar */
+}
+
+.event-time strong {
+    color: #ff4d4d;
+    text-shadow: 0 0 1px #ff9999, 0 0 15px #ff3333;
 }
 
 /* ===== LOKASI ACARA ===== */
 .event-location {
-    font-size: 18px;
-    margin-top: 8px;
-    color: #ffecec;
-    line-height: 1.4;
-    font-weight: 400;
+  font-size: 18px;
+  margin-top: 8px;
+  color: #ffecec;
+  line-height: 1.4;
+  font-weight: 500;
+  text-shadow:
+      0 0 4px #ff9999,   /* glow lembut */
+      0 0 8px #ff6666,   /* glow sedang */
+      0 0 12px #ff3333;  /* glow tebal */
 }
 
-.event-location strong,
-.event-time strong {
-    color: #ff4d4d;
-    text-shadow: 0 0 10px rgba(255, 80, 80, 0.8);
+.event-location strong {
+  color: #ffcccc;
+  text-shadow:
+      0 0 5px #ff6666,
+      0 0 10px #ff3333,
+      0 0 15px #ff0000;
+  font-weight: 700;
 }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 480px) {
-    .date-box {
-        padding: 10px 15px;
-    }
-
-    .date-box span {
-        font-size: 20px;
+    .event-box {
+        padding: 15px 20px;
     }
 
     .event-time {
@@ -330,12 +353,57 @@
         font-size: 16px;
     }
 }
+
 /* ===== LOGO BAYANGAN DI BELAKANG EVENT DATE ===== */
 #event-date {
   position: relative;
   overflow: visible;
   padding-bottom: 160px; /* tambahkan ruang di bawah */
 }
+
+.vnom-image {
+  width: 300px;      /* Sesuaikan ukuran */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* Tengah-tengah */
+
+  /* Efek glow merah / api */
+  filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.5))
+          drop-shadow(0 0 20px rgba(255, 100, 0, 0.7));
+
+  /* Animasi flicker / hidup */
+  animation: flicker 1.5s infinite alternate;
+}
+
+/* Keyframes animasi flicker */
+@keyframes flicker {
+  0% {
+    filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.4))
+            drop-shadow(0 0 15px rgba(255, 50, 0, 0.6));
+    transform: scale(1);
+  }
+  25% {
+    filter: drop-shadow(0 0 12px rgba(255, 0, 0, 0.6))
+            drop-shadow(0 0 25px rgba(255, 100, 0, 0.8));
+    transform: scale(1.05);
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.5))
+            drop-shadow(0 0 20px rgba(255, 50, 0, 0.7));
+    transform: scale(1);
+  }
+  75% {
+    filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.7))
+            drop-shadow(0 0 30px rgba(255, 150, 0, 0.9));
+    transform: scale(1.08);
+  }
+  100% {
+    filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.5))
+            drop-shadow(0 0 15px rgba(255, 50, 0, 0.6));
+    transform: scale(1);
+  }
+}
+
 
 #event-date .bg-logo {
   position: absolute;
@@ -401,6 +469,26 @@
     animation-play-state: running !important;
 }
 
+/* AREA MARQUEE */
+.partnership-marquee {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 20px 0;
+  background: rgba(255, 255, 255, 0.03);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* TRACK LOGO */
+.marquee-track {
+  display: flex;
+  gap: 40px;
+  width: max-content;
+  animation: scrollLeft 30s linear infinite;
+  animation-play-state: running !important;
+}
+
 /* LOGO */
 .marquee-track img {
     height: 80px;
@@ -453,3 +541,76 @@
     100% { opacity: 1; transform: translateY(0); }
 }
 
+/* ===== DAFTAR KOMUNITAS ===== */
+.community-list {
+  position: relative;
+  z-index: 2;
+  margin-top: 40px;
+  text-align: center;
+}
+
+/* Judul lebih keren dengan gradient + glow */
+.community-list h3 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 25px;
+  background: linear-gradient(90deg, #ff0000, #ff5500, #ffaaaa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 8px rgba(255, 0, 0, 0.8), 0 0 15px rgba(255, 120, 0, 0.6);
+}
+
+/* Grid komunitas terhubung seperti tabel */
+.community-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0; /* tidak ada gap antar cell */
+  border: 2px solid rgba(255, 0, 0, 0.6); /* border luar */
+  border-radius: 15px;
+  overflow: hidden; /* supaya border radius terlihat */
+  justify-items: stretch;
+}
+
+/* Cell tiap komunitas */
+.community {
+  background: linear-gradient(135deg, #330000, #660000);
+  color: #ffecec;
+  padding: 12px 10px;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+  text-shadow: 0 0 4px #ff9999, 0 0 8px #ff6666, 0 0 12px #ff3333;
+  border-right: 1px solid rgba(255, 0, 0, 0.4); /* garis antar kolom */
+  border-bottom: 1px solid rgba(255, 0, 0, 0.4); /* garis antar baris */
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Hilangkan border kanan pada cell terakhir tiap baris */
+.community:nth-child(4n) {
+  border-right: none;
+}
+
+/* Hilangkan border bawah pada baris terakhir */
+.community:nth-last-child(-n + 4) {
+  border-bottom: none;
+}
+
+/* Hover efek */
+.community:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.6), 0 0 25px rgba(255, 80, 0, 0.5);
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 480px) {
+  .community-grid {
+      grid-template-columns: repeat(2, 1fr);
+  }
+  .community {
+      padding: 8px 6px;
+      font-size: 14px;
+  }
+  .community-list h3 {
+      font-size: 22px;
+  }
+}
