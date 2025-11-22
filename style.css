@@ -807,7 +807,7 @@
 
 /* ===== LOGO UTAMA ===== */
 .footer-logo {
-  width: 220px;
+  width: 250px;
   display: block;
   margin: 0 auto;
   transition: 
@@ -998,4 +998,18 @@
   filter: drop-shadow(0 0 12px rgba(255,255,255,0.9));
 }
 
+
+/* Container gambar tambahan */
+.footer-images {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Style gambar tambahan */
+.footer-images img {
+  width: 200px;
+  filter: drop-shadow(0 0 8px #ff0000);
+}
 
