@@ -555,8 +555,38 @@
 }
 
 /* ===== SUPPORT SECTION ===== */
+#supportby {
+  text-align: center;
+  margin-top: 40px;
+}
+
+#supportby h2 {
+  font-size: 28px;
+  color: #ff1a1a;
+  margin-bottom: 20px;
+  font-family: 'Metal Mania', cursive;
+  letter-spacing: 2px;
+}
+
+
+/* TRACK LOGO */
+
+
+/* ANIMATION */
+@keyframes scrollLeft {
+  from {
+      transform: translateX(0);
+  }
+  to {
+      transform: translateX(-50%);
+  }
+}
+
+
+
+/* ===== SUPPORT SECTION ===== */
 #support {
-    text-align: center;
+    tet-align: center;
     margin-top: 40px;
 }
 
@@ -579,13 +609,22 @@
 }
 
 /* TRACK LOGO */
-.marquee-track {
+.media-marquee-track {
     display: flex;
     gap: 40px;
     width: max-content;
-    animation: scrollLeft 30s linear infinite;
+    animation: scrollLeft 10s linear infinite;
     animation-play-state: running !important;
 }
+
+.media-marquee-track img {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 5px #00000070);
+  transition: transform 0.2s ease;
+}
+
 
 /* AREA MARQUEE */
 .partnership-marquee {
@@ -607,7 +646,7 @@
   display: flex;
   gap: 40px;
   width: max-content;
-  animation: scrollLeft 30s linear infinite;
+  animation: scrollLeft 15s linear infinite;
   animation-play-state: running !important;
 }
 
@@ -633,10 +672,14 @@
     animation-play-state: running !important;
 }
 
-/* ANIMASI */
-@keyframes scrollLeft {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
+/* ANIMASI TANPA JEDA */
+@keyframes marqueeScroll {
+  0% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(-100%);
+  }
 }
 
 /* ==== ANIMASI GLOBAL SAAT MUNCUL DI LAYAR ==== */
