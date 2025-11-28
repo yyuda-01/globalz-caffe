@@ -30,13 +30,11 @@ musicBtn.addEventListener("click", function () {
     }
 });
 
-// 6 Desember 2025 jam 19:00 WITA
-// WITA = UTC+8 → 19:00 WITA = 11:00 UTC
-
-let eventDate = new Date(Date.UTC(2025, 11, 6, 11, 0, 0));
+// 6 Desember 2025 jam 16:00 WITA
+// WITA = UTC+8 → 16:00 WITA = 08:00 UTC
+let eventDate = new Date(Date.UTC(2025, 11, 6, 8, 0, 0));
 // bulan 11 = Desember (index 0)
 
-// Countdown
 let timer = setInterval(function () {
     let now = new Date();
     let diff = eventDate - now;
@@ -55,4 +53,6 @@ let timer = setInterval(function () {
     document.getElementById("timer").innerHTML =
         `${days} Hari ${hours} Jam ${minutes} Menit ${seconds} Detik`;
 }, 1000);
+
+
 
