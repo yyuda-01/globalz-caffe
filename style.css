@@ -163,14 +163,14 @@
   }
   
   .partner-grid img {
-    width: 150px;
-    filter: brightness(1) drop-shadow(0 0 15px red);
+    width: 180px;
+    filter: brightness(1) drop-shadow(0 0 10px red);
     transition: 0.3s;
   }
   
   .partner-grid img:hover {
     transform: scale(1.15);
-    filter: brightness(1.3) drop-shadow(0 0 20px red);
+    filter: brightness(1.3) drop-shadow(0 0 15px red);
   }
 
   #Partner h2 {
@@ -998,6 +998,78 @@
   margin-bottom: 40px;
 }
 
+.universal-invite {
+  margin-top: 25px;
+  padding: 14px 20px;        /* kotak lebih kecil */
+  text-align: center;
+  font-family: 'Metal Mania', cursive;
+  font-size: 26px;           /* sedikit kecil */
+  color: #ff3b3b;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  /* Glow ringan */
+  text-shadow:
+    0 0 3px #ff0000,
+    0 0 6px rgba(255, 30, 30, 0.5),
+    0 0 12px rgba(255, 0, 0, 0.35);
+
+  /* Kotak smoky */
+  background: rgba(10, 0, 0, 0.4);
+  border: 2px solid rgba(255, 40, 40, 0.6);
+  border-radius: 10px;
+  backdrop-filter: blur(3px);
+
+  box-shadow:
+    0 0 6px rgba(255, 0, 0, 0.25),
+    0 0 12px rgba(255, 0, 0, 0.15);
+
+  /* Transisi halus */
+  transition: transform 0.18s ease, box-shadow 0.25s ease, text-shadow 0.25s ease;
+
+  animation: softGlow 2s infinite ease-in-out alternate;
+}
+
+/* === Hover (sedikit membesar, tidak keluar layar) === */
+.universal-invite:hover {
+  transform: scale(1.02);   /* kecil saja */
+  box-shadow:
+    0 0 10px rgba(255, 0, 0, 0.35),
+    0 0 15px rgba(255, 0, 0, 0.2);
+}
+
+/* === Active (ditekan → sedikit masuk, bukan keluar layar) === */
+.universal-invite:active {
+  transform: scale(0.99);   /* hampir tidak berubah */
+  box-shadow:
+    0 0 6px rgba(255, 0, 0, 0.5),
+    0 0 10px rgba(255, 0, 0, 0.25);
+}
+
+@keyframes softGlow {
+  0% {
+    text-shadow:
+      0 0 3px #ff1a1a,
+      0 0 6px rgba(255, 40, 40, 0.4),
+      0 0 10px rgba(255, 0, 0, 0.3);
+
+    box-shadow:
+      0 0 5px rgba(255, 0, 0, 0.25),
+      0 0 10px rgba(255, 0, 0, 0.1);
+  }
+  100% {
+    text-shadow:
+      0 0 4px #ff2a2a,
+      0 0 9px rgba(255, 50, 50, 0.45);
+
+    box-shadow:
+      0 0 8px rgba(255, 0, 0, 0.35),
+      0 0 14px rgba(255, 0, 0, 0.15);
+  }
+}
+
+
 /* Judul */
 .social-title {
   font-family: 'Metal Mania', cursive;
@@ -1310,6 +1382,46 @@
 }
 
 /* LINK INSTAGRAM */
+.performance-list {
+  margin-top: 25px;
+  padding: 20px 25px;
+  background: linear-gradient(145deg, #111, #1c1c1c);
+  border: 2px solid #ff2424;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(255, 40, 40, 0.3);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.performance-list h3 {
+  font-family: 'Metal Mania', cursive;
+  font-size: 26px;
+  color: #ff3b3b;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 5px rgba(255, 40, 40, 0.6);
+}
+
+.performance-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.performance-list li {
+  font-family: 'Anton', sans-serif;
+  font-size: 20px;
+  color: #e8e8e8;
+  padding: 8px 0;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(255, 50, 50, 0.2);
+}
+
+.performance-list li:last-child {
+  border-bottom: none;
+}
 
 
 
