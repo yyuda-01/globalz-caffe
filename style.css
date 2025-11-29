@@ -179,6 +179,176 @@
     
   }
 
+  /* ===== SECTION WRAPPER ===== */
+#community-photos {
+  padding: 40px 20px;
+  width: 100%;
+  max-width: 1050px;
+  margin: auto;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* ===== FOTO BESAR ===== */
+.big-photo-box {
+  position: relative;
+  width: 100%;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.big-photo {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  filter: brightness(0.75);
+}
+
+/* ===== TEKS DI FOTO ===== */
+.big-photo-text {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+}
+
+.big-photo-text h1 {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.big-photo-text p {
+  margin-top: 10px;
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+/* ===== GALERI FOTO 4 ===== */
+.small-gallery {
+  margin-top: 35px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.small-item {
+  overflow: hidden;
+  border-radius: 18px;
+  height: 250px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+  animation: float 3s ease-in-out infinite alternate;
+}
+
+.small-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .4s ease;
+}
+
+.small-item:hover img {
+  transform: scale(1.08);
+  filter: brightness(1.15);
+}
+
+/* Animasi naik turun */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-14px); }
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media(max-width: 768px) {
+  .small-gallery {
+      grid-template-columns: repeat(2, 1fr); /* 2 kolom */
+  }
+
+  .small-item {
+      height: 200px;
+  }
+
+  .big-photo {
+      height: 380px;
+  }
+
+  .big-photo-text h1 {
+      font-size: 32px;
+  }
+}
+
+/* ==== ANIMASI FADE UNTUK FOTO BESAR ==== */
+
+.big-photo.fade-out {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.big-photo.fade-in {
+  opacity: 1;
+  transition: opacity 0.6s ease;
+}
+
+/* ===== BINGKAI API ELEGAN UNTUK FOTO BESAR ===== */
+.big-photo-box {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+
+  /* Glow tipis elegan */
+  box-shadow: 0 0 14px rgba(255, 40, 40, 0.35);
+  border: 2px solid rgba(255, 60, 60, 0.35);
+
+  /* Denyut halus */
+  animation: fireSoftPulse 3.5s ease-in-out infinite;
+}
+
+/* Efek api tipis di tepi */
+.big-photo-box::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 22px;
+  pointer-events: none;
+  z-index: 2;
+
+  background: linear-gradient(
+    45deg,
+    rgba(255, 60, 60, 0.35),
+    rgba(255, 20, 20, 0.15),
+    rgba(255, 80, 40, 0.35)
+  );
+  
+  background-size: 200% 200%;
+  animation: fireSoftMove 6s linear infinite;
+
+  opacity: 0.32; /* TIPIS supaya elegan */
+  mix-blend-mode: screen;
+}
+
+/* ===== ANIMASI DENYUT HALUS ===== */
+@keyframes fireSoftPulse {
+  0% {
+    box-shadow: 0 0 12px rgba(255, 50, 50, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 80, 80, 0.45);
+  }
+  100% {
+    box-shadow: 0 0 12px rgba(255, 50, 50, 0.3);
+  }
+}
+
+/* ===== GERAK API SANGAT HALUS ===== */
+@keyframes fireSoftMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+  
   
   /* ===== MAPS ===== */
   iframe {
@@ -1381,29 +1551,32 @@
   }
 }
 
-/* LINK INSTAGRAM */
 .performance-list {
   margin-top: 25px;
-  padding: 20px 25px;
-  background: linear-gradient(145deg, #111, #1c1c1c);
-  border: 2px solid #ff2424;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(255, 40, 40, 0.3);
-  max-width: 600px;
+  padding: 22px 28px;
+  background: linear-gradient(145deg, #0c0c0c, #1a1a1a);
+  border: 2px solid #ff1c1c;
+  border-radius: 14px;
+  box-shadow: 0 0 12px rgba(255, 30, 30, 0.25),
+              inset 0 0 8px rgba(255, 20, 20, 0.15);
+  max-width: 620px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
 }
 
+/* Judul */
 .performance-list h3 {
   font-family: 'Metal Mania', cursive;
-  font-size: 26px;
-  color: #ff3b3b;
-  margin-bottom: 12px;
+  font-size: 28px;
+  color: #ff2f2f;
+  margin-bottom: 14px;
   letter-spacing: 2px;
-  text-shadow: 0 0 5px rgba(255, 40, 40, 0.6);
+  text-shadow: 0 0 6px rgba(255, 35, 35, 0.7),
+               0 0 12px rgba(255, 10, 10, 0.3);
 }
 
+/* List */
 .performance-list ul {
   list-style: none;
   padding: 0;
@@ -1413,15 +1586,25 @@
 .performance-list li {
   font-family: 'Anton', sans-serif;
   font-size: 20px;
-  color: #e8e8e8;
-  padding: 8px 0;
-  letter-spacing: 1px;
-  border-bottom: 1px solid rgba(255, 50, 50, 0.2);
+  color: #f0f0f0;
+  padding: 10px 0;
+  letter-spacing: 1.2px;
+
+  /* 🔥 efek sangar tanpa lebay */
+  text-shadow: 0 0 4px rgba(255, 40, 40, 0.25);
+
+  border-bottom: 1px solid rgba(255, 50, 50, 0.25);
+  transition: 0.25s ease;
+}
+
+/* Efek hover — nyala sedikit */
+.performance-list li:hover {
+  color: #ffffff;
+  text-shadow: 0 0 6px rgba(255, 60, 60, 0.6);
+  transform: translateX(4px);
+  border-color: rgba(255, 70, 70, 0.45);
 }
 
 .performance-list li:last-child {
   border-bottom: none;
 }
-
-
-
