@@ -1553,13 +1553,18 @@
 
 .performance-list {
   margin-top: 25px;
-  padding: 22px 28px;
-  background: linear-gradient(145deg, #0c0c0c, #1a1a1a);
-  border: 2px solid #ff1c1c;
-  border-radius: 14px;
-  box-shadow: 0 0 12px rgba(255, 30, 30, 0.25),
-              inset 0 0 8px rgba(255, 20, 20, 0.15);
-  max-width: 620px;
+  padding: 16px 20px;
+  background: linear-gradient(145deg, #0b0b0b, #161616);
+  border: 1.5px solid #ff1c1c;
+  border-radius: 12px;
+
+  /* ⬇ ukuran lebih kecil, tidak full */
+  width: 85%;
+  max-width: 420px;
+
+  box-shadow: 0 0 10px rgba(255, 40, 40, 0.25),
+              inset 0 0 6px rgba(255, 20, 20, 0.15);
+
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -1568,12 +1573,10 @@
 /* Judul */
 .performance-list h3 {
   font-family: 'Metal Mania', cursive;
-  font-size: 28px;
+  font-size: 22px;
   color: #ff2f2f;
-  margin-bottom: 14px;
-  letter-spacing: 2px;
-  text-shadow: 0 0 6px rgba(255, 35, 35, 0.7),
-               0 0 12px rgba(255, 10, 10, 0.3);
+  margin-bottom: 12px;
+  text-shadow: 0 0 6px rgba(255, 40, 40, 0.6);
 }
 
 /* List */
@@ -1585,26 +1588,21 @@
 
 .performance-list li {
   font-family: 'Anton', sans-serif;
-  font-size: 20px;
-  color: #f0f0f0;
-  padding: 10px 0;
-  letter-spacing: 1.2px;
-
-  /* 🔥 efek sangar tanpa lebay */
-  text-shadow: 0 0 4px rgba(255, 40, 40, 0.25);
-
+  font-size: 18px;
+  color: #f2f2f2;
+  padding: 8px 0;
   border-bottom: 1px solid rgba(255, 50, 50, 0.25);
+  letter-spacing: 1px;
+  text-shadow: 0 0 4px rgba(255, 40, 40, 0.25);
   transition: 0.25s ease;
-}
-
-/* Efek hover — nyala sedikit */
-.performance-list li:hover {
-  color: #ffffff;
-  text-shadow: 0 0 6px rgba(255, 60, 60, 0.6);
-  transform: translateX(4px);
-  border-color: rgba(255, 70, 70, 0.45);
 }
 
 .performance-list li:last-child {
   border-bottom: none;
+}
+
+.performance-list li:hover {
+  color: #fff;
+  transform: translateX(3px);
+  text-shadow: 0 0 6px rgba(255, 60, 60, 0.6);
 }
