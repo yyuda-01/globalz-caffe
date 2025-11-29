@@ -54,5 +54,34 @@ let timer = setInterval(function () {
         `${days} Hari ${hours} Jam ${minutes} Menit ${seconds} Detik`;
 }, 1000);
 
+const smallPhotos = [
+    "assets/banner-2.jpeg",
+    "assets/banner-1.jpeg",
+    "assets/foto-5.jpeg",
+    "assets/foto-6.jpeg"
+];
+
+const bigPhoto = document.querySelector(".big-photo");
+let index = 0;
+
+function updateBigPhoto() {
+    bigPhoto.classList.add("fade-out");
+
+    setTimeout(() => {
+        bigPhoto.src = smallPhotos[index];
+
+        bigPhoto.classList.remove("fade-out");
+        bigPhoto.classList.add("fade-in");
+
+        setTimeout(() => {
+            bigPhoto.classList.remove("fade-in");
+        }, 600);
+
+        index = (index + 1) % smallPhotos.length;
+    }, 600);
+}
+
+setInterval(updateBigPhoto, 5000);
+
 
 
