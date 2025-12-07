@@ -3,15 +3,79 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>See You</title>
+  <title>HACKED</title>
 
-  <!-- Tetap pakai desain brutal di style.css -->
+  <!-- Tetap pakai style.css -->
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      background: black;
+      color: #0aff0a;
+      font-family: "Orbitron", monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .glitch {
+      font-size: 45px;
+      font-weight: bold;
+      position: relative;
+      text-transform: uppercase;
+      animation: flicker 1.6s infinite alternate;
+      letter-spacing: 2px;
+    }
+
+    .glitch::before,
+    .glitch::after {
+      content: "HACKED BY - ZZ";
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0.7;
+      clip: rect(0, 900px, 0, 0);
+    }
+
+    .glitch::before {
+      left: 2px;
+      text-shadow: -2px 0 red;
+      animation: glitchTop 1.2s infinite linear alternate-reverse;
+    }
+
+    .glitch::after {
+      left: -2px;
+      text-shadow: -2px 0 cyan;
+      animation: glitchBottom 1.4s infinite linear alternate-reverse;
+    }
+
+    @keyframes glitchTop {
+      0% { clip: rect(0, 9999px, 0, 0); }
+      50% { clip: rect(0, 9999px, 100px, 0); }
+      100% { clip: rect(0, 9999px, 0, 0); }
+    }
+
+    @keyframes glitchBottom {
+      0% { clip: rect(80px, 9999px, 120px, 0); }
+      50% { clip: rect(0, 9999px, 120px, 0); }
+      100% { clip: rect(80px, 9999px, 120px, 0); }
+    }
+
+    @keyframes flicker {
+      0%   { opacity: 1; }
+      50%  { opacity: 0.6; }
+      70%  { opacity: 1; }
+      80%  { opacity: 0.2; }
+      100% { opacity: 1; }
+    }
+  </style>
+
 </head>
 <body>
 
-    <!-- gunakan kelas yang pasti kena efek CSS -->
-    <h1 class="hero-title">EROR Hack by-zz</h1>
+  <div class="glitch">HACKED BY - ZZ</div>
 
 </body>
 </html>
